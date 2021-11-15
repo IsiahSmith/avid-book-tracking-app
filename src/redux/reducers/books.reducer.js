@@ -1,4 +1,4 @@
-const booksReducer = (state = [], action) => {
+const books = (state = [], action) => {
     switch (action.type) {
         case 'SET_BOOKS':
             return action.payload;

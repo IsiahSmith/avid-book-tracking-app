@@ -6,8 +6,8 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 // Gets all books from the logged in user
 router.get('/', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT * FROM "book";`;
-  pool.query(queryText)
+  const queryText = `SELECT * FROM "book" WHERE "user_id" = $1;`;
+  pool.query(queryText, [req.user.id])
   .then(result => {
     res.send(result.rows); //result.rows contains all the user's books
   })
