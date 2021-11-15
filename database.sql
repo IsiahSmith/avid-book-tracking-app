@@ -13,8 +13,8 @@ CREATE TABLE "user" (
 CREATE TABLE "book" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "user",
-	"title" VARCHAR(255),
-	"author" VARCHAR(255),
+	"title" VARCHAR(255) NOT NULL,
+	"author" VARCHAR(255) NOT NULL,
 	"page_count" INT NOT NULL,
 	"rating" INT
 );
