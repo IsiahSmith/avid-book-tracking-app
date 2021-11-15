@@ -19,6 +19,9 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import EditBook from '../EditBook/EditBook';
+import UpdateProgress from '../UpdateProgress/UpdateProgress';
+import CompleteForm from '../CompleteForm/CompleteForm';
 
 import './App.css';
 
@@ -58,6 +61,30 @@ function App() {
             path="/homepage"
           >
             <HomePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows EditBook else shows LoginPage
+            exact
+            path="/edit"
+          >
+            <EditBook />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UpdateProgress else shows LoginPage
+            exact
+            path="/update"
+          >
+            <UpdateProgress />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows CompleteForm else shows LoginPage
+            exact
+            path="/complete"
+          >
+            <CompleteForm />
           </ProtectedRoute>
 
           <ProtectedRoute
