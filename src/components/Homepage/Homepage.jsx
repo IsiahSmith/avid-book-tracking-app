@@ -24,6 +24,7 @@ function HomePage() {
                     </div>
                 </div>
             ))}
+            <button onClick={() => history.push('/addbook')}>ADD BOOK</button>
         </div>
     );
 }

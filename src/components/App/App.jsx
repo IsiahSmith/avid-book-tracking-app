@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import EditBook from '../EditBook/EditBook';
 import UpdateProgress from '../UpdateProgress/UpdateProgress';
 import CompleteForm from '../CompleteForm/CompleteForm';
+import AddBook from '../AddBook/AddBook';
 
 import './App.css';
 
@@ -85,6 +86,14 @@ function App() {
             path="/complete"
           >
             <CompleteForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows AddBook else shows LoginPage
+            exact
+            path="/addbook"
+          >
+            <AddBook />
           </ProtectedRoute>
 
           <ProtectedRoute
