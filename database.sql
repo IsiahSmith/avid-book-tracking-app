@@ -8,3 +8,22 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+
+CREATE TABLE "book" (
+	"id" SERIAL PRIMARY KEY,
+	"user_id" INT REFERENCES "user",
+	"title" VARCHAR(255),
+	"author" VARCHAR(255),
+	"page_count" INT NOT NULL,
+	"rating" INT
+);
+
+
+CREATE TABLE "reading_session" (
+	"id" SERIAL PRIMARY KEY,
+	"book_id" INT REFERENCES "book",
+	"date" DATE,
+	"duration" INT,
+	"page" INT
+);
