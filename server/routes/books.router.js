@@ -52,21 +52,5 @@ router.put('/:updateId', (req, res) => {
   })
 }); //End PUT
 
-// Adds reading progress to database
-router.post('/progress', (req, res) => {
-  const queryText = `
-  INSERT INTO "reading_session" ("book_id", "date", "duration", "page")
-  VALUES ($1, $2, $3, $4);
-  `;
-  console.log('!!!!', req.body);
-  pool.query(queryText, [req.body.book_id, req.body.date, req.body.duration, req.body.page])
-  .then(result => {
-    res.sendStatus(201);
-  })
-  .catch(err => {
-    console.log('Error POSTing reading progress', err);
-    res.sendStatus(500)
-  })
-}); //End POST
 
 module.exports = router;
