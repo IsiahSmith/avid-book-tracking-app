@@ -17,11 +17,17 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   })
 }); //End GET
 
-/**
- * POST route template
- */
+// Adds inputted book to database
 router.post('/', (req, res) => {
-  // POST route code here
-});
+  const queryText = `
+  INSERT INTO "book" ("user_id", "title", "author", "page_count")
+  VALUES ($1, $2, $3, $4);
+  `;
+  pool.query(queryText, [req.user.id, req.body.title, req.body.author, req.body.page_count])
+  .then(result => {
+    res.sendStatus(201);
+  })
+}); //End POST
+
 
 module.exports = router;

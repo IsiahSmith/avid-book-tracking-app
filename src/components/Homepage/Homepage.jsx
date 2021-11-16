@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -12,6 +11,9 @@ function HomePage() {
         dispatch({ type: 'FETCH_BOOKS' });
     }, []);
 
+
+
+    console.log(books);
     return (
         <div>
             <h2>Currently Reading</h2>
