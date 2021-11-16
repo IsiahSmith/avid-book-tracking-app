@@ -34,14 +34,16 @@ router.post('/', (req, res) => {
 }); //End POST
 
 // Updates the book information in the database and on the DOM
-router.put('/:id', (req, res) => {
+router.put('/:updateId', (req, res) => {
+  const updateId = req.params.updateId;
   const queryText = `
   UPDATE "book"
   SET ("title", "author", "page_count") = ($1, $2, $3)
   WHERE "id" = $4;
   `;
-  pool.query(queryText, [req.body.title, req.body.author, req.body.page_count, req.params.id])
+  pool.query(queryText, [req.body.title, req.body.author, req.body.page_count, updateId])
   .then(result => {
+    console.log('result is', result);
     res.sendStatus(200);
   })
   .catch(err => {

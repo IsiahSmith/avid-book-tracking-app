@@ -67,7 +67,7 @@ function App() {
           <ProtectedRoute
             // logged in shows EditBook else shows LoginPage
             exact
-            path="/edit"
+            path="/edit/:book_id"
           >
             <EditBook />
           </ProtectedRoute>

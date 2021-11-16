@@ -20,7 +20,7 @@ function HomePage() {
             {books.map((book) => (
                 <div key={book.id}>
                     <div>{book.title}, by {book.author} 
-                    <button onClick={() => history.push('/edit')}>EDIT</button>
+                    <button onClick={() => history.push(`/edit/${book.id}`)}>EDIT</button>
                     <button onClick={() => history.push('/update')}>UPDATE PROGRESS</button>
                     <button onClick={() => history.push('/complete')}>COMPLETE</button>
                     </div>
