@@ -7,14 +7,24 @@ function* fetchBooks() {
         const response = yield axios.get('/api/books')
         yield put({ type: 'SET_BOOKS', payload: response.data});
     } catch (err) {
-        yield put({ type: 'FETCH_BOOKS_ERROR' });
-        console.log(err);
+        console.log('GET ERROR', err);
+    }
+};
+
+//sage POST to server
+function* addBook(action) {
+    try {
+        yield axios.post('/api/books', action.payload)
+        yield put({ type: 'FETCH_BOOKS' })
+    } catch (err) {
+        console.log('POST ERROR', err);
     }
 };
 
 //watching for functions to be called
 function* booksSaga() {
     yield takeLatest('FETCH_BOOKS', fetchBooks);
+    yield takeLatest('ADD_BOOK', addBook);
 }
 
 
