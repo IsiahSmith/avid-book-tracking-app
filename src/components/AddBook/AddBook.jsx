@@ -42,9 +42,7 @@ function AddBook() {
                     value={newBook.page_count}
                     onChange={(event) => handlePropertyChange(event, 'page_count')}
                 />
-                <button
-                    type="submit">SUBMIT</button>
-
+                <button type="submit">SUBMIT</button>
             </form>
 
         </>

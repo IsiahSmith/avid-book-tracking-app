@@ -24,7 +24,7 @@ function EditBook() {
         <>
             <button onClick={() => history.push('/homepage')}>Cancel</button>
             <h2>Edit Book</h2>
-            <div>
+            <form onSubmit={runUpdateBook}>
                 <input
                     placeholder="Title"
                     type="text"
@@ -43,8 +43,8 @@ function EditBook() {
                     value={updateBook.page_count}
                     onChange={(event) => handlePropertyChange(event, 'page_count')}
                 />
-                <button onClick={runUpdateBook}>UPDATE</button>
-            </div>
+                <button type="submit">SUBMIT</button>
+            </form>
         </>
     )
 }

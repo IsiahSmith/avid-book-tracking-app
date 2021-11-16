@@ -24,7 +24,6 @@ function* addBook(action) {
 //saga PUT to server
 function* updateBook(action) {
     try {
-        console.log("LOOK HERE", action.payload);
         yield axios.put(`/api/books/${action.payload.book_id}`, action.payload)
         yield put({ type: 'FETCH_BOOKS' })
     } catch (err) {
