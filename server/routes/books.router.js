@@ -27,7 +27,27 @@ router.post('/', (req, res) => {
   .then(result => {
     res.sendStatus(201);
   })
+  .catch(err => {
+    console.log('Error POSTing new book', err);
+    res.sendStatus(500)
+  })
 }); //End POST
 
+// Updates the book information in the database and on the DOM
+router.put('/:id', (req, res) => {
+  const queryText = `
+  UPDATE "book"
+  SET ("title", "author", "page_count") = ($1, $2, $3)
+  WHERE "id" = $4;
+  `;
+  pool.query(queryText, [req.body.title, req.body.author, req.body.page_count, req.params.id])
+  .then(result => {
+    res.sendStatus(200);
+  })
+  .catch(err => {
+    console.log('Error updating book', err);
+    res.sendStatus(500)
+  })
+}); //End PUT
 
 module.exports = router;
