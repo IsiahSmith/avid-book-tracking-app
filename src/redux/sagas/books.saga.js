@@ -17,7 +17,7 @@ function* addBook(action) {
         yield axios.post('/api/books', action.payload)
         yield put({ type: 'FETCH_BOOKS' })
     } catch (err) {
-        console.log('POST ERROR IN SAGA', err);
+        console.log('POST ERROR IN BOOKS SAGA', err);
     }
 };
 
