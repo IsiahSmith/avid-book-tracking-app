@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 function AddBook() {
     const dispatch = useDispatch();
-
+    const history = useHistory();
     const [newBook, setNewBook] = useState({ title: '', author: '', page_count: '' })
 
     //Sets newBook local state to the passed in inputs
@@ -16,10 +16,13 @@ function AddBook() {
     const addNewBook = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_BOOK', payload: newBook});
+        history.push('/homepage');
     };
 
     return (
         <>
+        <button onClick={() => history.push('/homepage')}>Cancel</button>
+        <h2>Add a Book</h2>
             <form onSubmit={addNewBook}>
                 <input
                     placeholder="Title"
@@ -40,7 +43,7 @@ function AddBook() {
                     onChange={(event) => handlePropertyChange(event, 'page_count')}
                 />
                 <button
-                    type="submit">Add New Book!</button>
+                    type="submit">SUBMIT</button>
 
             </form>
 
