@@ -7,7 +7,7 @@ function* fetchBooks() {
         const response = yield axios.get('/api/books')
         yield put({ type: 'SET_BOOKS', payload: response.data });
     } catch (err) {
-        console.log('GET ERROR IN SAGA', err);
+        console.log('GET ERROR IN BOOKS SAGA', err);
     }
 };
 
