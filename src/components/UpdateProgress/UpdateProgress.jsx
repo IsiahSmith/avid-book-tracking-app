@@ -8,12 +8,12 @@ function UpdateProgress() {
     const [readingSession, setReadingSession] = useState({ date: '', duration: '', page: '' });
     const {book_id} = useParams();
 
-    //Sets newBook local state to the passed in inputs
+    //Sets readingSession local state to the passed in inputs
     const handlePropertyChange = (event, property) => {
         setReadingSession({...readingSession, [property]: event.target.value})
     };
 
-    //Sends new book to the saga
+    //Sends reading session to the saga
     const addReadingSession = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_PROGRESS', payload: {...readingSession, book_id}});

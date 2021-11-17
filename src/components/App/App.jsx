@@ -83,7 +83,7 @@ function App() {
           <ProtectedRoute
             // logged in shows CompleteForm else shows LoginPage
             exact
-            path="/complete"
+            path="/complete/:book_id"
           >
             <CompleteForm />
           </ProtectedRoute>

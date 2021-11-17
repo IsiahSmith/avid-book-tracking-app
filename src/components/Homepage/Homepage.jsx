@@ -21,7 +21,7 @@ function HomePage() {
                     <div>{book.title}, by {book.author} 
                     <button onClick={() => history.push(`/edit/${book.id}`)}>EDIT</button>
                     <button onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</button>
-                    <button onClick={() => history.push('/complete')}>COMPLETE</button>
+                    <button onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</button>
                     </div>
                 </div>
             ))}
