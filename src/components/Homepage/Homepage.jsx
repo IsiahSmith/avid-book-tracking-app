@@ -7,13 +7,12 @@ function HomePage() {
     const history = useHistory();
     const books = useSelector((store) => store.books);
 
+    // Gets all books from the logged in user on page load
     useEffect(() => {
         dispatch({ type: 'FETCH_BOOKS' });
     }, []);
 
 
-
-    console.log(books);
     return (
         <div>
             <h2>Currently Reading</h2>
@@ -21,7 +20,7 @@ function HomePage() {
                 <div key={book.id}>
                     <div>{book.title}, by {book.author} 
                     <button onClick={() => history.push(`/edit/${book.id}`)}>EDIT</button>
-                    <button onClick={() => history.push('/update')}>UPDATE PROGRESS</button>
+                    <button onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</button>
                     <button onClick={() => history.push('/complete')}>COMPLETE</button>
                     </div>
                 </div>

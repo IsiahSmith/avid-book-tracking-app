@@ -1,11 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 function UpdateProgress() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [readingSession, setReadingSession] = useState({ date: '', duration: '', page: '' })
+    const [readingSession, setReadingSession] = useState({ date: '', duration: '', page: '' });
+    const {book_id} = useParams();
 
     //Sets newBook local state to the passed in inputs
     const handlePropertyChange = (event, property) => {
@@ -15,7 +16,7 @@ function UpdateProgress() {
     //Sends new book to the saga
     const addReadingSession = (event) => {
         event.preventDefault();
-        dispatch({ type: 'ADD_PROGRESS', payload: readingSession});
+        dispatch({ type: 'ADD_PROGRESS', payload: {...readingSession, book_id}});
         history.push('/homepage');
     };
 

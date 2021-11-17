@@ -75,7 +75,7 @@ function App() {
           <ProtectedRoute
             // logged in shows UpdateProgress else shows LoginPage
             exact
-            path="/update"
+            path="/update/:book_id"
           >
             <UpdateProgress />
           </ProtectedRoute>
