@@ -5,14 +5,18 @@ import { useHistory, useParams } from 'react-router-dom';
 function CompleteForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const book = useSelector(store => store.progress);
-    const [readingSession, setReadingSession] = useState({ date: '', duration: '', page: book.page_count});
+    const books = useSelector(store => store.books);
     const { book_id } = useParams();
-    const [rating, setRating] = useState(0);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_PROGRESS' });
+        dispatch({ type: 'FETCH_BOOKS' });
     }, []);
+    
+    let selectedBook = books.filter(book => book.id == book_id);
+    selectedBook = selectedBook[0]
+
+    const [readingSession, setReadingSession] = useState({ date: '', duration: '', page: selectedBook.page_count});
+    const [rating, setRating] = useState(0);
 
     //Sets newBook local state to the passed in inputs
     const handlePropertyChange = (event, property) => {
@@ -27,7 +31,8 @@ function CompleteForm() {
         history.push('/homepage');
     };
 
-    console.log('book', book);
+    console.log('books', books);
+    console.log('selectedBook', selectedBook);
     return (
         <>
             <button onClick={() => history.push('/homepage')}>Cancel</button>
