@@ -27,7 +27,7 @@ function CompleteForm() {
     const addReadingSession = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_PROGRESS', payload: { ...readingSession, book_id } });
-        dispatch({ type: 'ADD_RATING', payload: rating });
+        dispatch({ type: 'UPDATE_RATING', payload: rating });
         history.push('/homepage');
     };
 

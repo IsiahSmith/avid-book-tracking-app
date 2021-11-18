@@ -21,8 +21,18 @@ function* addBook(action) {
     }
 };
 
-//saga PUT to server
+//saga PUT to server for book title, author, and page count
 function* updateBook(action) {
+    try {
+        yield axios.put(`/api/books/${action.payload.book_id}`, action.payload)
+        yield put({ type: 'FETCH_BOOKS' })
+    } catch (err) {
+        console.log('PUT ERROR IN SAGA', err);
+    }
+}
+
+//saga PUT to server for book rating
+function* updateRating(action) {
     try {
         yield axios.put(`/api/books/${action.payload.book_id}`, action.payload)
         yield put({ type: 'FETCH_BOOKS' })
@@ -36,6 +46,7 @@ function* booksSaga() {
     yield takeLatest('FETCH_BOOKS', fetchBooks);
     yield takeLatest('ADD_BOOK', addBook);
     yield takeLatest('UPDATE_BOOK', updateBook);
+    yield takeLatest('UPDATE_RATING', updateRating);
 } 
 
 

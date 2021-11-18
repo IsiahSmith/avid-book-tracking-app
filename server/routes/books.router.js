@@ -86,7 +86,7 @@ router.post('/progress', (req, res) => {
     })
 }); //End POST
 
-// Updates the book information in the database and on the DOM
+// Updates the rating of the book in the database and on the DOM
 router.put('/rating/:id', (req, res) => {
   const id = req.params.id;
   const queryText = `
