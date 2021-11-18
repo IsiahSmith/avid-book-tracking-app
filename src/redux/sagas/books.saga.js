@@ -15,7 +15,7 @@ function* fetchBooks() {
 function* addBook(action) {
     try {
         yield axios.post('/api/books', action.payload)
-        yield put({ type: 'FETCH_BOOKS' })
+        yield put({ type: 'FETCH_BOOKS' });
     } catch (err) {
         console.log('POST ERROR IN BOOKS SAGA', err);
     }
@@ -25,7 +25,7 @@ function* addBook(action) {
 function* updateBook(action) {
     try {
         yield axios.put(`/api/books/${action.payload.book_id}`, action.payload)
-        yield put({ type: 'FETCH_BOOKS' })
+        yield put({ type: 'FETCH_BOOKS' });
     } catch (err) {
         console.log('PUT ERROR IN SAGA', err);
     }
@@ -35,13 +35,21 @@ function* updateBook(action) {
 function* updateRating(action) {
     try {
         yield axios.put(`/api/books/rating/${action.payload.book_id}`, action.payload)
-        yield put({ type: 'FETCH_BOOKS' })
+        yield put({ type: 'FETCH_BOOKS' });
     } catch (err) {
         console.log('PUT ERROR IN SAGA', err);
     }
 }
 
-
+//saga DELETE to server, deletes book from database
+function* deleteRating(action) {
+    try {
+      yield axios.delete(`/api/books/${action.payload.id}`);
+      yield put({ type: 'FETCH_BOOKS' })
+    } catch (err) {
+      console.log('DELETE ERROR IN SAGA', err);
+    }
+  }
 
 //watching for functions to be called
 function* booksSaga() {
