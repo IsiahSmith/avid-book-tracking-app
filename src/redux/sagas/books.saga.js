@@ -44,12 +44,12 @@ function* updateRating(action) {
 //saga DELETE to server, deletes book from database
 function* deleteRating(action) {
     try {
-      yield axios.delete(`/api/books/${action.payload.id}`);
-      yield put({ type: 'FETCH_BOOKS' })
+        yield axios.delete(`/api/books/${action.payload.id}`);
+        yield put({ type: 'FETCH_BOOKS' })
     } catch (err) {
-      console.log('DELETE ERROR IN SAGA', err);
+        console.log('DELETE ERROR IN SAGA', err);
     }
-  }
+}
 
 //watching for functions to be called
 function* booksSaga() {
@@ -58,7 +58,7 @@ function* booksSaga() {
     yield takeLatest('UPDATE_BOOK', updateBook);
     yield takeLatest('UPDATE_RATING', updateRating);
     yield takeLatest('DELETE_BOOK', deleteRating);
-} 
+}
 
 
 export default booksSaga;
