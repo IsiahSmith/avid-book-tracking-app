@@ -38,7 +38,7 @@ router.put('/:updateId', (req, res) => {
   const updateId = req.params.updateId;
   const queryText = `
     UPDATE "book"
-    SET ("title", "author", "page_count") = ($1, $2, $3,)
+    SET ("title", "author", "page_count") = ($1, $2, $3)
     WHERE "id" = $4;
   `;
   pool.query(queryText, [req.body.title, req.body.author, req.body.page_count, updateId])
