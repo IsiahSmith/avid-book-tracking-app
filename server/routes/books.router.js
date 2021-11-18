@@ -106,5 +106,22 @@ router.put('/rating/:id', (req, res) => {
     })
 }); //End PUT
 
+// Deletes selected book from the DOM and database
+router.delete('/:id', (req, res) => {
+  let id = req.params.id
+  let queryText = `
+    DELETE FROM "book"
+    WHERE id = $1
+  `;
+  pool.query(queryText, [id])
+    .then(results => {
+        res.sendStatus(204)
+      })
+      .catch(err => {
+      console.log('Error deleting book', err)
+      res.sendStatus(500)
+    })
+}); //End DELETE
+
 
 module.exports = router;
