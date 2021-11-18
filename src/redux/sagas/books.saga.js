@@ -34,7 +34,6 @@ function* updateBook(action) {
 //saga PUT to server for book rating
 function* updateRating(action) {
     try {
-        console.log('RATING SAGA ACTIONPAYLOAD', action.payload);
         yield axios.put(`/api/books/rating/${action.payload.book_id}`, action.payload)
         yield put({ type: 'FETCH_BOOKS' })
     } catch (err) {
@@ -42,12 +41,15 @@ function* updateRating(action) {
     }
 }
 
+
+
 //watching for functions to be called
 function* booksSaga() {
     yield takeLatest('FETCH_BOOKS', fetchBooks);
     yield takeLatest('ADD_BOOK', addBook);
     yield takeLatest('UPDATE_BOOK', updateBook);
     yield takeLatest('UPDATE_RATING', updateRating);
+    yield takeLatest('DELETE_BOOK', deleteRating);
 } 
 
 
