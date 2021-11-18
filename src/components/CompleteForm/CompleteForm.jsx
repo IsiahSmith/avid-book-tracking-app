@@ -16,7 +16,7 @@ function CompleteForm() {
     selectedBook = selectedBook[0]
 
     const [readingSession, setReadingSession] = useState({ date: '', duration: '', page: selectedBook.page_count});
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState('');
 
     //Sets newBook local state to the passed in inputs
     const handlePropertyChange = (event, property) => {
@@ -27,7 +27,7 @@ function CompleteForm() {
     const addReadingSession = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_PROGRESS', payload: { ...readingSession, book_id } });
-        dispatch({ type: 'UPDATE_RATING', payload: rating });
+        dispatch({ type: 'UPDATE_RATING', payload: {rating, book_id} });
         history.push('/homepage');
     };
 
@@ -51,7 +51,7 @@ function CompleteForm() {
                     onChange={(event) => handlePropertyChange(event, 'duration')}
                 />
                 <input
-                    placeholder="rating"
+                    placeholder="Rating"
                     type="number"
                     value={rating}
                     onChange={(event) => setRating(event.target.value)}

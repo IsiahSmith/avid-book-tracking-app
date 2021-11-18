@@ -34,7 +34,8 @@ function* updateBook(action) {
 //saga PUT to server for book rating
 function* updateRating(action) {
     try {
-        yield axios.put(`/api/books/${action.payload.book_id}`, action.payload)
+        console.log('RATING SAGA ACTIONPAYLOAD', action.payload);
+        yield axios.put(`/api/books/rating/${action.payload.book_id}`, action.payload)
         yield put({ type: 'FETCH_BOOKS' })
     } catch (err) {
         console.log('PUT ERROR IN SAGA', err);
