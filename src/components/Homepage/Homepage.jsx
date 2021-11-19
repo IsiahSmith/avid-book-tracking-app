@@ -18,17 +18,26 @@ function HomePage() {
     console.log('progress is', progress);
     return (
         <>
-        <h2>Currently Reading</h2>
-            {books.length > 0 ? <div> 
-               {books.map((book) => (
-                <div key={book.id}>
-                    <div>{book.title}, by {book.author} 
-                    <button onClick={() => history.push(`/edit/${book.id}`)}>EDIT</button>
-                    <button onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</button>
-                    <button onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</button>
+            <h2>Currently Reading</h2>
+            {books.length > 0 ? <div>
+                {books.map((book) => (
+                    <div key={book.id}>
+                        <div>{book.title}, by {book.author}
+                            <button onClick={() => history.push(`/edit/${book.id}`)}>EDIT</button>
+                            <button onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</button>
+                            <button onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</button>
+                        </div>
+                        {progress.map((session, i) => (
+                            <div key={i}>
+                                {session.book_id === book.id ?
+                                    <div>
+                                        Currently on page {session.page} { }
+                                        Last read on {session.date}
+                                    </div> : <p>No progress added yet</p>}
+                            </div>
+                        ))} 
                     </div>
-                </div>
-            ))}
+                ))}
             </div> : <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
             <button onClick={() => history.push('/addbook')}>ADD BOOK</button>
         </>
