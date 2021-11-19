@@ -23,6 +23,7 @@ import EditBook from '../EditBook/EditBook';
 import UpdateProgress from '../UpdateProgress/UpdateProgress';
 import CompleteForm from '../CompleteForm/CompleteForm';
 import AddBook from '../AddBook/AddBook';
+import ReadingData from '../ReadingData/ReadingData';
 
 import './App.css';
 
@@ -97,11 +98,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows Collection else shows LoginPage
             exact
             path="/collection"
           >
             <Collection />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows ReadingData else shows LoginPage
+            exact
+            path="/data"
+          >
+            <ReadingData />
           </ProtectedRoute>
 
           <Route

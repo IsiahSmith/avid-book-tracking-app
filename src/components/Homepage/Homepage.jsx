@@ -14,9 +14,10 @@ function HomePage() {
 
 
     return (
-        <div>
-            <h2>Currently Reading</h2>
-            {books.map((book) => (
+        <>
+        <h2>Currently Reading</h2>
+            {books.length > 0 ? <div> 
+               {books.map((book) => (
                 <div key={book.id}>
                     <div>{book.title}, by {book.author} 
                     <button onClick={() => history.push(`/edit/${book.id}`)}>EDIT</button>
@@ -25,8 +26,9 @@ function HomePage() {
                     </div>
                 </div>
             ))}
+            </div> : <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
             <button onClick={() => history.push('/addbook')}>ADD BOOK</button>
-        </div>
+        </>
     );
 }
 
