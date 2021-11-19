@@ -14,13 +14,15 @@ function HomePage() {
         dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
+    let currentlyReading = books.filter(book => book.rating === null)
+    // let progressForBook = progress.filter(session => session.book_id === )
 
     console.log('progress is', progress);
     return (
         <>
             <h2>Currently Reading</h2>
             {books.length > 0 ? <div>
-                {books.map((book) => (
+                {currentlyReading.map((book) => (
                     <div key={book.id}>
                         <div>{book.title}, by {book.author}
                             <button onClick={() => history.push(`/edit/${book.id}`)}>EDIT</button>
