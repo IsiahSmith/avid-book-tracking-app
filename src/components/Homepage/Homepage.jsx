@@ -6,13 +6,16 @@ function HomePage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const books = useSelector((store) => store.books);
+    const progress = useSelector((store) => store.progress);
 
     // Gets all books from the logged in user on page load
     useEffect(() => {
         dispatch({ type: 'FETCH_BOOKS' });
+        dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
 
+    console.log('progress is', progress);
     return (
         <>
         <h2>Currently Reading</h2>
