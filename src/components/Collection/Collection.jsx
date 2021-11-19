@@ -12,11 +12,12 @@ function Collection() {
         dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
+    let completedBooks = books.filter(book => book.rating > 0)
 
     return (
         <div>
             <h2>Collection</h2>
-            {books.map((book) => (
+            {completedBooks.map((book) => (
                 
                 <div key={book.id}>
                     <div>{book.title}, by {book.author} || <span>Rating: {book.rating}</span>
