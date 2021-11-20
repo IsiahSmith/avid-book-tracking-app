@@ -8,7 +8,7 @@ function HomePage() {
     const books = useSelector((store) => store.books);
     const progress = useSelector((store) => store.progress);
 
-    // Gets all books from the logged in user on page load
+    // Gets all reading sessions and books from the logged in user on page load
     useEffect(() => {
         dispatch({ type: 'FETCH_BOOKS' });
         dispatch({ type: 'FETCH_PROGRESS' });
