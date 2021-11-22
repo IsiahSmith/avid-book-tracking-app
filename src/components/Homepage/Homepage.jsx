@@ -17,7 +17,6 @@ function HomePage() {
     let currentlyReading = books.filter(book => book.rating === null);
     let progressForBook = progress.filter(session => session.rating === null);
 
-    console.log('progress is', progress);
     return (
         <>
             <h2>Currently Reading</h2>
