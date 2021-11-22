@@ -14,14 +14,36 @@ function ReadingData() {
         dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
-    const labels = [];
-    const data = [];
+    let completedBooks = books.filter(book => book.rating > 0)
+    // let progressForBook = progress.filter(session => session.rating === null);
+
+    let bookDuration = [];
     for (let i=0; i<progress.length; i++) {
-        labels.push(progress[i].title)
-        data.push(progress[i].duration)
+        for (let j=1; j<progress.length; j++) {
+            if (progress[i].title === progress[j].title) {
+               bookDuration = progress[i].duration + progress[j].duration
+               return bookDuration
+            }
+        }
+        return bookDuration
     }
 
 
+
+    const labels = [];
+    const data = [];
+    for (let i=0; i<books.length; i++) {
+        labels.push(books[i].title)
+        data.push(progress[i].duration)
+    }
+
+    // for (let i=0; i<progress.length; i++) {
+    //     if (progress[i].title === progress[i+1].title) {
+    //         let combined = progress[i].duration + progress[i+1].duration
+    //     }
+    // }
+
+    console.log('BD', bookDuration);
     return (
     <div className="chart">
         <Bar 
