@@ -24,7 +24,7 @@ function Collection() {
                 let finalSession = completedBookSessions[completedBookSessions.length - 1];
                 let sum = 0;
                 for (let i = 0; i < completedBookSessions.length; i++) {
-                    sum += completedBookSessions[i].duration
+                    sum += Number(completedBookSessions[i].duration)
                     console.log('!!!!', completedBookSessions);
                 }
 
