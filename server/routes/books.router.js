@@ -55,7 +55,7 @@ router.put('/:updateId', (req, res) => {
 // Gets all reading sessions from the logged in user
 router.get('/progress', (req, res) => {
   const queryText = `
-    SELECT "book_id", "date", "duration", "page", "title", "author", "page_count" FROM "reading_session" 
+    SELECT "book_id", "date", "duration", "page", "title", "author", "page_count", "rating" FROM "reading_session" 
     JOIN "book" ON "book"."id" = "reading_session"."book_id"
     WHERE "user_id" = $1;
   `;
