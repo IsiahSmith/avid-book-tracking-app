@@ -34,18 +34,12 @@ function HomePage() {
                                 <button onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</button>
                                 <button onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</button>
                             </div>
-                            {/* {progressForBook.map((session, i) => (
-                            <div key={i}>
-                                {session.book_id === book.id ?
-                                    <div>
-                                        Currently on page {session.page} { }
-                                        Last read on {session.date}
-                                    </div> : <div>No progress added yet</div>}
-                            </div>
-                        ))}  */}
-
-                            {/* {progressForBook.filter(session => session.book_id === book.id)} */}
-                            {recentSession && <p>minutes read: {recentSession?.duration}</p>}
+                            {recentSession && 
+                            <div>
+                                <p>Currently on Page {recentSession?.page}</p>
+                                <p>Last Read on: {recentSession?.date.split('T')[0]}</p>
+                                <p>Time Spent Reading: {recentSession?.duration}</p>
+                            </div>}
                         </div>
                     )
                 })}
