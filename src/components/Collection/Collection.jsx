@@ -22,6 +22,11 @@ function Collection() {
 
                 let completedBookSessions = progressForBook.filter(session => session.book_id === book.id);
                 let finalSession = completedBookSessions[completedBookSessions.length - 1];
+                let sum = 0;
+                for (let i = 0; i < completedBookSessions.length; i++) {
+                    sum += completedBookSessions[i].duration
+                    console.log('!!!!', completedBookSessions);
+                }
 
                 return (
                     <div key={book.id}>
@@ -29,8 +34,8 @@ function Collection() {
                             <button onClick={() => dispatch({ type: "DELETE_BOOK", payload: book })}>DELETE</button>
                         </div>
                         <div>
-                            <p>Read Book in -total hours-</p>
-                            <p>Finished on {finalSession.date.split('T')[0]}</p>
+                            <p>Book completed in {sum} hours</p>
+                            <p>Finished on {finalSession?.date.split('T')[0]}</p>
                         </div>
                     </div>
                 )
