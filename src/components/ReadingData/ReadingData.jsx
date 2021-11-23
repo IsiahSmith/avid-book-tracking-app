@@ -14,25 +14,35 @@ function ReadingData() {
         dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
-
+    //Gets just completed books
     let completedBooks = books.filter(book => book.rating > 0);
 
+    //Gets the total hours the user has logged
     let totalHours = 0;
     for (let i = 0; i < progress.length; i++) {
         totalHours += Number(progress[i].duration)
-    }
+    };
 
-    
 
+    let pagesRead = [progress[0].page];
+    for (let i = 1; i < progress.length; i++) {
+        if (progress[i].book_id === progress[i - 1].book_id) {
+            pagesRead.push(Number(progress[i].page) - Number(progress[i - 1].page))
+        } else {
+            pagesRead.push(Number(progress[i].page))
+        }
+    };
+
+    //Data setup for bar chart
     const labels = [];
     const data = [];
     for (let i = 0; i < progress.length; i++) {
         labels.push(progress[i].date.split('T')[0])
         data.push(Number(progress[i].duration))
-    }
+    };
 
 
-    console.log('TOTAL BOOKS read', completedBooks.length);
+    console.log('pages read', pagesRead);
     return (
         <>
             <div className="chart">
