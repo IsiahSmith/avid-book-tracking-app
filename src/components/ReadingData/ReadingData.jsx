@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 
 function ReadingData() {
@@ -36,7 +35,7 @@ function ReadingData() {
     //Calculates reading speed for reading session of the user
     let readingSpeed = [];
     for (let i = 0; i < pagesRead.length; i++) {
-        readingSpeed.push(pagesRead[i]/Number(progress[i].duration))
+        readingSpeed.push(pagesRead[i] / Number(progress[i].duration))
     };
 
     //Calculates users average reading speed
@@ -46,7 +45,28 @@ function ReadingData() {
     //Keeps calculations to four digits  
     function precise(x) {
         return Number.parseFloat(x).toPrecision(4);
-      }
+    }
+
+    // Calculates total hours read by user for each day
+    let result = {};
+    for(let entry of progress){
+        let date = entry.date?.split('T')[0];
+        let matched = false;
+
+        //if the date is already in result, do this
+        for(let key in result){
+            if(key === date){
+                console.log('match');
+                result[date] = result[date] + Number(entry.duration);
+                // let the rest of the loop know that 
+                matched = true;
+            }
+        }
+        //if the date is not in result, make a new entry
+        if(!matched) {
+            result[date] = Number(entry.duration)
+        }
+    };
 
     //Data setup for bar chart
     const labels = [];
@@ -56,7 +76,7 @@ function ReadingData() {
         data.push(Number(progress[i].duration))
     };
 
-
+    console.log('Progress', progress);
     console.log('pages read', pagesRead);
     console.log('reading speed', readingSpeed);
     return (
@@ -67,7 +87,7 @@ function ReadingData() {
                         labels: labels,
                         datasets: [
                             {
-                                label: 'HOURS READ FOR EACH DAY',
+                                label: 'Hours Read For Each Day',
                                 data: data,
                                 backgroundColor: 'pink',
                                 borderColor: 'magenta',
