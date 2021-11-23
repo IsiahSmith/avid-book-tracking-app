@@ -33,8 +33,9 @@ function ReadingData() {
         }
     };
 
+    let readingSpeed = [];
     for (let i = 0; i < pagesRead.length; i++) {
-     
+        readingSpeed.push(pagesRead[i]/Number(progress[i].duration))
     };
 
     //Data setup for bar chart
@@ -47,6 +48,7 @@ function ReadingData() {
 
 
     console.log('pages read', pagesRead);
+    console.log('reading speed', readingSpeed);
     return (
         <>
             <div className="chart">
