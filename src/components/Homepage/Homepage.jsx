@@ -37,7 +37,7 @@ function HomePage() {
                             <div>
                                 <p>Currently on Page {recentSession?.page}</p>
                                 <p>Last Read on {recentSession?.date.split('T')[0]}</p>
-                                <p>Logged {recentSession?.duration} hours of reading</p>
+                                <p>Logged {recentSession?.duration} hours of reading last session</p>
                             </div>}
                         </div>
                     )
