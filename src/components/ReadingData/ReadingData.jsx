@@ -69,13 +69,14 @@ function ReadingData() {
     };
 
     //Data setup for bar chart
-    const labels = [];
-    const data = [];
-    for (let i = 0; i < progress.length; i++) {
-        labels.push(progress[i].date.split('T')[0])
-        data.push(Number(progress[i].duration))
-    };
+    const labels = Object.keys(result);
+    const data = labels.map(date => result[date]);
+    // for (let i = 0; i < progress.length; i++) {
+    //     labels.push(progress[i].date.split('T')[0])
+    //     data.push(Number(progress[i].duration))
+    // };
 
+    console.log('labels', labels);
     console.log('Progress', progress);
     console.log('pages read', pagesRead);
     console.log('reading speed', readingSpeed);
@@ -92,12 +93,14 @@ function ReadingData() {
                                 backgroundColor: 'pink',
                                 borderColor: 'magenta',
                                 borderWidth: 2,
+                                lineTension: 0
                             }
                         ]
                     }}
                     width={400}
                     height={600}
                     options={{
+                        cubicInterpolationMode: 'monotone',
                         maintainAspectRatio: false,
                         scales: {
                             yAxes: [{
