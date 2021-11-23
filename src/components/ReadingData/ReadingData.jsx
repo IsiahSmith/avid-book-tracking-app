@@ -14,70 +14,65 @@ function ReadingData() {
         dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
-    let completedBooks = books.filter(book => book.rating > 0)
-    // let progressForBook = progress.filter(session => session.rating === null);
 
-    let bookDuration = [];
-    for (let i=0; i<progress.length; i++) {
-        for (let j=1; j<progress.length; j++) {
-            if (progress[i].title === progress[j].title) {
-               bookDuration = progress[i].duration + progress[j].duration
-               return bookDuration
-            }
-        }
-        return bookDuration
+    let completedBooks = books.filter(book => book.rating > 0);
+
+    let totalHours = 0;
+    for (let i = 0; i < progress.length; i++) {
+        totalHours += Number(progress[i].duration)
     }
 
-
+    
 
     const labels = [];
     const data = [];
-    for (let i=0; i<books.length; i++) {
-        labels.push(books[i].title)
-        data.push(progress[i].duration)
+    for (let i = 0; i < progress.length; i++) {
+        labels.push(progress[i].date.split('T')[0])
+        data.push(Number(progress[i].duration))
     }
 
-    // for (let i=0; i<progress.length; i++) {
-    //     if (progress[i].title === progress[i+1].title) {
-    //         let combined = progress[i].duration + progress[i+1].duration
-    //     }
-    // }
 
-    console.log('BD', bookDuration);
+    console.log('TOTAL BOOKS read', completedBooks.length);
     return (
-    <div className="chart">
-        <Bar 
-            data={{
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'HOURS READ FOR EACH BOOK',
-                        data: data,
-                        backgroundColor: 'pink',
-                        borderColor: 'magenta',
-                        borderWidth: 2,
-                    }
-                ]
-            }}
-            width={400}
-            height={600}
-            options={{
-                maintainAspectRatio: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        <>
+            <div className="chart">
+                <Bar
+                    data={{
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'HOURS READ FOR EACH DAY',
+                                data: data,
+                                backgroundColor: 'pink',
+                                borderColor: 'magenta',
+                                borderWidth: 2,
+                            }
+                        ]
+                    }}
+                    width={400}
+                    height={600}
+                    options={{
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
                         }
-                    }],
-                    xAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }}
-        />
-    </div>
+                    }}
+                />
+            </div>
+            <div>
+                <h3>TOTAL HOURS READ: {totalHours}</h3>
+                <h3>TOTAL BOOKS READ: {completedBooks.length}</h3>
+            </div>
+        </>
     )
 }
 
