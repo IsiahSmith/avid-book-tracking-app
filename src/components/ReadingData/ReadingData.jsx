@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 function ReadingData() {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function ReadingData() {
         dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
-    //Gets just completed books
+    //Gets just the completed books of the user
     let completedBooks = books.filter(book => book.rating > 0);
 
     //Gets the total hours the user has logged
@@ -23,7 +23,7 @@ function ReadingData() {
         totalHours += Number(progress[i].duration)
     };
 
-
+    //Gets pages read for each reading session of the user
     let pagesRead = [progress[0].page];
     for (let i = 1; i < progress.length; i++) {
         if (progress[i].book_id === progress[i - 1].book_id) {
@@ -31,6 +31,10 @@ function ReadingData() {
         } else {
             pagesRead.push(Number(progress[i].page))
         }
+    };
+
+    for (let i = 0; i < pagesRead.length; i++) {
+     
     };
 
     //Data setup for bar chart
@@ -46,7 +50,7 @@ function ReadingData() {
     return (
         <>
             <div className="chart">
-                <Bar
+                <Line
                     data={{
                         labels: labels,
                         datasets: [
