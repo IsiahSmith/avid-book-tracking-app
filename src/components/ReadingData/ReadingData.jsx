@@ -39,8 +39,14 @@ function ReadingData() {
         readingSpeed.push(pagesRead[i]/Number(progress[i].duration))
     };
 
+    //Calculates users average reading speed
     const average = (array) => array.reduce((a, b) => a + b) / array.length;
     console.log(average(readingSpeed));
+
+    //Keeps calculations to four digits  
+    function precise(x) {
+        return Number.parseFloat(x).toPrecision(4);
+      }
 
     //Data setup for bar chart
     const labels = [];
@@ -91,7 +97,7 @@ function ReadingData() {
             <div>
                 <h3>TOTAL HOURS READ: {totalHours}</h3>
                 <h3>TOTAL BOOKS READ: {completedBooks.length}</h3>
-                <h3>READING SPEED: {average(readingSpeed)} Pages per Hour</h3>
+                <h3>READING SPEED: {precise(average(readingSpeed))} Pages per Hour</h3>
             </div>
         </>
     )
