@@ -18,28 +18,29 @@ function Collection() {
     return (
         <div>
             <h2>Collection</h2>
-            {completedBooks.map((book) => {
+            {completedBooks.length > 0 ? <div>
+                {completedBooks.map((book) => {
 
-                let completedBookSessions = progressForBook.filter(session => session.book_id === book.id);
-                let finalSession = completedBookSessions[completedBookSessions.length - 1];
-                let sum = 0;
-                for (let i = 0; i < completedBookSessions.length; i++) {
-                    sum += completedBookSessions[i].duration
-                    console.log('!!!!', completedBookSessions);
-                }
+                    let completedBookSessions = progressForBook.filter(session => session.book_id === book.id);
+                    let finalSession = completedBookSessions[completedBookSessions.length - 1];
+                    let sum = 0;
+                    for (let i = 0; i < completedBookSessions.length; i++) {
+                        sum += Number(completedBookSessions[i].duration)
+                    }
 
-                return (
-                    <div key={book.id}>
-                        <div>{book.title}, by {book.author} || <span>Rating: {book.rating}</span>
-                            <button onClick={() => dispatch({ type: "DELETE_BOOK", payload: book })}>DELETE</button>
+                    return (
+                        <div key={book.id}>
+                            <div>{book.title}, by {book.author} || <span>Rating: {book.rating}</span>
+                                <button onClick={() => dispatch({ type: "DELETE_BOOK", payload: book })}>DELETE</button>
+                            </div>
+                            <div>
+                                <p>Book completed in {sum} hours</p>
+                                <p>Finished on {finalSession?.date.split('T')[0]}</p>
+                            </div>
                         </div>
-                        <div>
-                            <p>Book completed in {sum} hours</p>
-                            <p>Finished on {finalSession?.date.split('T')[0]}</p>
-                        </div>
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div> : <p>You haven't completed any books yet! Complete a book to see it added here.</p>}
         </div>
     );
 }

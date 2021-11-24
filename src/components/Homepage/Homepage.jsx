@@ -17,7 +17,6 @@ function HomePage() {
     let currentlyReading = books.filter(book => book.rating === null);
     let progressForBook = progress.filter(session => session.rating === null);
 
-    console.log('progress is', progress);
     return (
         <>
             <h2>Currently Reading</h2>
@@ -38,7 +37,7 @@ function HomePage() {
                             <div>
                                 <p>Currently on Page {recentSession?.page}</p>
                                 <p>Last Read on {recentSession?.date.split('T')[0]}</p>
-                                <p>Logged {recentSession?.duration} hours of reading</p>
+                                <p>Logged {recentSession?.duration} hours of reading last session</p>
                             </div>}
                         </div>
                     )
