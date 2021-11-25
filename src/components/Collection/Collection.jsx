@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+//Material-UI imports
+import Button from '@mui/material/Button';
+
 function Collection() {
     const dispatch = useDispatch();
     const books = useSelector((store) => store.books);
@@ -31,7 +34,7 @@ function Collection() {
                     return (
                         <div key={book.id}>
                             <div>{book.title}, by {book.author} || <span>Rating: {book.rating}</span>
-                                <button onClick={() => dispatch({ type: "DELETE_BOOK", payload: book })}>DELETE</button>
+                                <Button variant='contained' onClick={() => dispatch({ type: "DELETE_BOOK", payload: book })}>DELETE</Button>
                             </div>
                             <div>
                                 <p>Book completed in {sum} hours</p>

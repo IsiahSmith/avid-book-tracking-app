@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
+//Material-UI imports
 import Button from '@mui/material/Button';
 
 function HomePage() {
