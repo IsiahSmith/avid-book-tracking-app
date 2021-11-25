@@ -2,6 +2,9 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+//Material-UI imports
+import Button from '@mui/material/Button';
+
 function AddBook() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -21,7 +24,7 @@ function AddBook() {
 
     return (
         <>
-        <button onClick={() => history.push('/homepage')}>Cancel</button>
+        <Button variant='contained' onClick={() => history.push('/homepage')}>Cancel</Button>
         <h2>Add a Book</h2>
             <form onSubmit={addNewBook}>
                 <input
@@ -42,7 +45,7 @@ function AddBook() {
                     value={newBook.page_count}
                     onChange={(event) => handlePropertyChange(event, 'page_count')}
                 />
-                <button type="submit">SUBMIT</button>
+                <Button variant='contained' type="submit">SUBMIT</Button>
             </form>
 
         </>
