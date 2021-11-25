@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 function HomePage() {
     const dispatch = useDispatch();
@@ -29,9 +30,9 @@ function HomePage() {
                     return (
                         <div key={book.id}>
                             <div>{book.title}, by {book.author}
-                                <button onClick={() => history.push(`/edit/${book.id}`)}>EDIT</button>
-                                <button onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</button>
-                                <button onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</button>
+                                <Button variant='contained' onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button>
+                                <Button variant='contained' onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</Button>
+                                <Button variant='contained' onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button>
                             </div>
                             {recentSession && 
                             <div>
@@ -43,7 +44,7 @@ function HomePage() {
                     )
                 })}
             </div> : <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
-            <button onClick={() => history.push('/addbook')}>ADD BOOK</button>
+            <Button variant='contained' onClick={() => history.push('/addbook')}>ADD BOOK</Button>
         </>
     );
 }

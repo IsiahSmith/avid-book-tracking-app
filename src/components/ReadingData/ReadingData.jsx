@@ -56,7 +56,6 @@ function ReadingData() {
         //if the date is already in result, do this
         for(let key in result){
             if(key === date){
-                console.log('match');
                 result[date] = result[date] + Number(entry.duration);
                 // let the rest of the loop know that 
                 matched = true;
