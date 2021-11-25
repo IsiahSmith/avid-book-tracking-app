@@ -4,6 +4,7 @@ import { useHistory, useParams  } from 'react-router-dom';
 
 //Material-UI imports
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function EditBook() {
     const dispatch = useDispatch();
@@ -28,20 +29,26 @@ function EditBook() {
             <Button variant='contained' onClick={() => history.push('/homepage')}>Cancel</Button>
             <h2>Edit Book</h2>
             <form onSubmit={runUpdateBook}>
-                <input
-                    placeholder="Title"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Title"
                     type="text"
                     value={updateBook.title}
                     onChange={(event) => handlePropertyChange(event, 'title')}
                 />
-                <input
-                    placeholder="Author"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Author"
                     type="text"
                     value={updateBook.author}
                     onChange={(event) => handlePropertyChange(event, 'author')}
                 />
-                <input
-                    placeholder="Page Count"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Page Count"
                     type="number"
                     value={updateBook.page_count}
                     onChange={(event) => handlePropertyChange(event, 'page_count')}

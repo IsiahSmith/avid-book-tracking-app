@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 //Material-UI imports
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function AddBook() {
     const dispatch = useDispatch();
@@ -27,20 +28,26 @@ function AddBook() {
         <Button variant='contained' onClick={() => history.push('/homepage')}>Cancel</Button>
         <h2>Add a Book</h2>
             <form onSubmit={addNewBook}>
-                <input
-                    placeholder="Title"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Title"
                     type="text"
                     value={newBook.title}
                     onChange={(event) => handlePropertyChange(event, 'title')}
                 />
-                <input
-                    placeholder="Author"
+                <TextField
+                    id="outlined-basic"
+                    variant="outlined"
+                    label="Author"
                     type="text"
                     value={newBook.author}
                     onChange={(event) => handlePropertyChange(event, 'author')}
                 />
-                <input
-                    placeholder="Page Count"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Page Count"
                     type="text"
                     value={newBook.page_count}
                     onChange={(event) => handlePropertyChange(event, 'page_count')}
