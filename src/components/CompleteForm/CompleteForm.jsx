@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 //Material-UI imports
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function CompleteForm() {
     const dispatch = useDispatch();
@@ -41,20 +42,25 @@ function CompleteForm() {
             <Button variant='contained' onClick={() => history.push('/homepage')}>Cancel</Button>
             <h2>Final Entry</h2>
             <form onSubmit={addReadingSession}>
-                <input
-                    placeholder="Date"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
                     type="date"
                     value={readingSession.date}
                     onChange={(event) => handlePropertyChange(event, 'date')}
                 />
-                <input
-                    placeholder="Duration"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Duration"
                     type="number"
                     value={readingSession.duration}
                     onChange={(event) => handlePropertyChange(event, 'duration')}
                 />
-                <input
-                    placeholder="Rating"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Rating"
                     type="number"
                     value={rating}
                     onChange={(event) => setRating(event.target.value)}
