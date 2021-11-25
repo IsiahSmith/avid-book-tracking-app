@@ -2,6 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
+//Material-UI imports
+import Button from '@mui/material/Button';
+
 function CompleteForm() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -35,7 +38,7 @@ function CompleteForm() {
     console.log('selectedBook', selectedBook);
     return (
         <>
-            <button onClick={() => history.push('/homepage')}>Cancel</button>
+            <Button variant='contained' onClick={() => history.push('/homepage')}>Cancel</Button>
             <h2>Final Entry</h2>
             <form onSubmit={addReadingSession}>
                 <input
@@ -56,7 +59,7 @@ function CompleteForm() {
                     value={rating}
                     onChange={(event) => setRating(event.target.value)}
                 />
-                <button type="submit">UPDATE</button>
+                <Button variant='contained' type="submit">UPDATE</Button>
             </form>
 
         </>

@@ -2,6 +2,9 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
+//Material-UI imports
+import Button from '@mui/material/Button';
+
 function UpdateProgress() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -22,7 +25,7 @@ function UpdateProgress() {
 
     return (
         <>
-        <button onClick={() => history.push('/homepage')}>Cancel</button>
+        <Button variant='contained' onClick={() => history.push('/homepage')}>Cancel</Button>
         <h2>Update Progress</h2>
             <form onSubmit={addReadingSession}>
                 <input
@@ -43,7 +46,7 @@ function UpdateProgress() {
                     value={readingSession.page}
                     onChange={(event) => handlePropertyChange(event, 'page')}
                 />
-                <button type="submit">UPDATE</button>
+                <Button variant='contained' type="submit">UPDATE</Button>
             </form>
 
         </>
