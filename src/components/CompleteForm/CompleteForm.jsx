@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 //Material-UI imports
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import Rating from '@mui/material/Rating';
 
 function CompleteForm() {
     const dispatch = useDispatch();
@@ -57,13 +58,18 @@ function CompleteForm() {
                     value={readingSession.duration}
                     onChange={(event) => handlePropertyChange(event, 'duration')}
                 />
-                <TextField
+                {/* <TextField
                     id="outlined-basic" 
                     variant="outlined"
                     label="Rating"
                     type="number"
                     value={rating}
                     onChange={(event) => setRating(event.target.value)}
+                /> */}
+                <Rating
+                    name="simple-controlled" 
+                    value={rating} 
+                    onChange={(event) => setRating(event.target.value)} 
                 />
                 <Button variant='contained' type="submit">UPDATE</Button>
             </form>
