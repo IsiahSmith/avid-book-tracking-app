@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 //Material-UI imports
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function UpdateProgress() {
     const dispatch = useDispatch();
@@ -28,20 +29,25 @@ function UpdateProgress() {
         <Button variant='contained' onClick={() => history.push('/homepage')}>Cancel</Button>
         <h2>Update Progress</h2>
             <form onSubmit={addReadingSession}>
-                <input
-                    placeholder="Date"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
                     type="date"
                     value={readingSession.date}
                     onChange={(event) => handlePropertyChange(event, 'date')}
                 />
-                <input
-                    placeholder="Duration"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Duration"
                     type="number"
                     value={readingSession.duration}
                     onChange={(event) => handlePropertyChange(event, 'duration')}
                 />
-                <input
-                    placeholder="Page"
+                <TextField
+                    id="outlined-basic" 
+                    variant="outlined"
+                    label="Page"
                     type="number"
                     value={readingSession.page}
                     onChange={(event) => handlePropertyChange(event, 'page')}
