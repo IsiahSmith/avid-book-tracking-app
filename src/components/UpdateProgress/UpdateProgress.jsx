@@ -48,7 +48,7 @@ function UpdateProgress() {
                             id="outlined-basic"
                             variant="outlined"
                             type="date"
-                            helperText="Day you read on"
+                            helperText="(Day you read on)"
                             value={readingSession.date}
                             onChange={(event) => handlePropertyChange(event, 'date')}
                         />
@@ -58,7 +58,7 @@ function UpdateProgress() {
                             variant="outlined"
                             label="Duration"
                             type="number"
-                            helperText="How long you read for (hours)"
+                            helperText="(How long you read for [hours])"
                             value={readingSession.duration}
                             onChange={(event) => handlePropertyChange(event, 'duration')}
                         />
@@ -68,7 +68,7 @@ function UpdateProgress() {
                             variant="outlined"
                             label="Page"
                             type="number"
-                            helperText="Page number you finished on"
+                            helperText="(Page number you finished on)"
                             value={readingSession.page}
                             onChange={(event) => handlePropertyChange(event, 'page')}
                         />
