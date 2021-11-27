@@ -32,9 +32,9 @@ function HomePage() {
                     return (
                         <div key={book.id}>
                             <div>{book.title}, by {book.author}
-                                <Button variant='contained' onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button>
-                                <Button variant='contained' onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</Button>
-                                <Button variant='contained' onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button>
+                                <Button variant='outlined' onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button>
+                                <Button variant='outlined' onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</Button>
+                                <Button variant='outlined' onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button>
                             </div>
                             {recentSession && 
                             <div>
