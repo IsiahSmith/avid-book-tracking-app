@@ -37,12 +37,11 @@ function EditBook() {
                 style={{ minHeight: '30vh' }}
             >
                 <h2>Edit Book</h2>
+                <form onSubmit={runUpdateBook}>
                 <FormControl
                     sx={{
                         width: '40ch',
-
                     }}
-                    onSubmit={runUpdateBook}
                 >
                     <TextField
                         sx={{ m: 1 }}
@@ -92,9 +91,10 @@ function EditBook() {
                                 m: .5,
                                 width: '21ch',
                             }}
-                            type="submit">SUBMIT</Button>
+                            type="submit">SAVE</Button>
                     </Grid>
                 </FormControl>
+                </form>
             </Grid>
         </>
     )
