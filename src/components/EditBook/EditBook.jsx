@@ -38,62 +38,62 @@ function EditBook() {
             >
                 <h2>Edit Book</h2>
                 <form onSubmit={runUpdateBook}>
-                <FormControl
-                    sx={{
-                        width: '40ch',
-                    }}
-                >
-                    <TextField
-                        sx={{ m: 1 }}
-                        id="outlined-basic"
-                        variant="outlined"
-                        label="Title"
-                        type="text"
-                        value={updateBook.title}
-                        onChange={(event) => handlePropertyChange(event, 'title')}
-                    />
-                    <TextField
-                        sx={{ m: 1 }}
-                        id="outlined-basic"
-                        variant="outlined"
-                        label="Author"
-                        type="text"
-                        value={updateBook.author}
-                        onChange={(event) => handlePropertyChange(event, 'author')}
-                    />
-                    <TextField
-                        sx={{ m: 1 }}
-                        id="outlined-basic"
-                        variant="outlined"
-                        label="Page Count"
-                        type="number"
-                        helperText="(How many pages are in the book)"
-                        value={updateBook.page_count}
-                        onChange={(event) => handlePropertyChange(event, 'page_count')}
-                    />
-                    <Grid
-                        container
-                        spacing={0}
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="center"
+                    <FormControl
+                        sx={{
+                            width: '40ch',
+                        }}
                     >
-                        <Button
-                            variant='contained'
-                            sx={{
-                                m: .5,
-                                width: '21ch',
-                            }}
-                            onClick={() => history.push('/homepage')}>Cancel</Button>
-                        <Button
-                            variant='contained'
-                            sx={{
-                                m: .5,
-                                width: '21ch',
-                            }}
-                            type="submit">SAVE</Button>
-                    </Grid>
-                </FormControl>
+                        <TextField
+                            sx={{ m: 1 }}
+                            id="outlined-basic"
+                            variant="outlined"
+                            label="Title"
+                            type="text"
+                            value={updateBook.title}
+                            onChange={(event) => handlePropertyChange(event, 'title')}
+                        />
+                        <TextField
+                            sx={{ m: 1 }}
+                            id="outlined-basic"
+                            variant="outlined"
+                            label="Author"
+                            type="text"
+                            value={updateBook.author}
+                            onChange={(event) => handlePropertyChange(event, 'author')}
+                        />
+                        <TextField
+                            sx={{ m: 1 }}
+                            id="outlined-basic"
+                            variant="outlined"
+                            label="Page Count"
+                            type="number"
+                            helperText="(How many pages are in the book)"
+                            value={updateBook.page_count}
+                            onChange={(event) => handlePropertyChange(event, 'page_count')}
+                        />
+                        <Grid
+                            container
+                            spacing={0}
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="center"
+                        >
+                            <Button
+                                variant='contained'
+                                sx={{
+                                    m: .5,
+                                    width: '21ch',
+                                }}
+                                onClick={() => history.push('/homepage')}>Cancel</Button>
+                            <Button
+                                variant='contained'
+                                sx={{
+                                    m: .5,
+                                    width: '21ch',
+                                }}
+                                type="submit">SAVE</Button>
+                        </Grid>
+                    </FormControl>
                 </form>
             </Grid>
         </>
