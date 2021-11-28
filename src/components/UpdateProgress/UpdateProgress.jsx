@@ -66,7 +66,7 @@ function UpdateProgress() {
                             sx={{ m: 1 }}
                             id="outlined-basic"
                             variant="outlined"
-                            label="Page"
+                            label=" Current Page"
                             type="number"
                             helperText="(Page number you finished on)"
                             value={readingSession.page}
