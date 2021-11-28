@@ -33,29 +33,40 @@ function HomePage() {
                 style={{ minHeight: '30vh' }}
             >
                 <h2>Currently Reading</h2>
-                {books.length > 0 ? <div>
-                    {currentlyReading.map((book) => {
+                {books.length > 0 ? <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Page#</th>
+                            <th>Last Read</th>
+                            <th>%Complete</th>
+                            <th>Edit</th>
+                            <th>Update Progress</th>
+                            <th>Complete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentlyReading.map((book) => {
 
-                        let bookSessions = progressForBook.filter(session => session.book_id === book.id);
-                        let recentSession = bookSessions[bookSessions.length - 1];
+                            let bookSessions = progressForBook.filter(session => session.book_id === book.id);
+                            let recentSession = bookSessions[bookSessions.length - 1];
 
-                        return (
-                            <div key={book.id}>
-                                <div>{book.title}, by {book.author}
-                                    <Button variant='outlined' onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button>
-                                    <Button variant='outlined' onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</Button>
-                                    <Button variant='outlined' onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button>
-                                </div>
-                                {recentSession &&
-                                    <div>
-                                        <p>Currently on Page {recentSession?.page}</p>
-                                        <p>Last Read on {recentSession?.date.split('T')[0]}</p>
-                                        <p>Logged {recentSession?.duration} hours of reading last session</p>
-                                    </div>}
-                            </div>
-                        )
-                    })}
-                </div> : <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
+                            return (
+                                <tr key={book.id}>
+                                    <td>{book.title}</td>
+                                    <td>{book.author}</td>
+                                    <td>{recentSession ? recentSession.page : <span>---</span>}</td>
+                                    <td>{recentSession ? recentSession.date.split('T')[0] : <span>---</span>}</td>
+                                    <td>CHANGE THIS</td>
+                                    <td><Button variant='outlined' onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button></td>
+                                    <td><Button variant='outlined' onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</Button></td>
+                                    <td><Button variant='outlined' onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button></td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table> : <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
                 <Button variant='contained' onClick={() => history.push('/addbook')}>ADD BOOK</Button>
             </Grid>
         </>
