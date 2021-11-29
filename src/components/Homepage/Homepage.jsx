@@ -58,7 +58,6 @@ function HomePage() {
 
                                 let bookSessions = progressForBook.filter(session => session.book_id === book.id);
                                 let recentSession = bookSessions[bookSessions.length - 1];
-                                // let percentComplete = (recentSession.page/recentSession.page_count);
 
                                 return (
                                     <TableRow key={book.id}>
