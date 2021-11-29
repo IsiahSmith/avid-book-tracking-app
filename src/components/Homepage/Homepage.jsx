@@ -39,42 +39,47 @@ function HomePage() {
                 style={{ minHeight: '30vh' }}
             >
                 <h2>Currently Reading</h2>
-                {books.length > 0 ? <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Title</TableCell>
-                            <TableCell>Author</TableCell>
-                            <TableCell>Page#</TableCell>
-                            <TableCell>Last Read</TableCell>
-                            <TableCell>%Complete</TableCell>
-                            <TableCell>Edit</TableCell>
-                            <TableCell>Update Progress</TableCell>
-                            <TableCell>Complete</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {currentlyReading.map((book) => {
+                <TableContainer component={Paper}>
+                    {books.length > 0 ? <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Title</TableCell>
+                                <TableCell>Author</TableCell>
+                                <TableCell>Page#</TableCell>
+                                <TableCell>Last Read</TableCell>
+                                <TableCell>%Complete</TableCell>
+                                <TableCell>Edit</TableCell>
+                                <TableCell>Update Progress</TableCell>
+                                <TableCell>Complete</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {currentlyReading.map((book) => {
 
-                            let bookSessions = progressForBook.filter(session => session.book_id === book.id);
-                            let recentSession = bookSessions[bookSessions.length - 1];
-                           // let percentComplete = (recentSession.page/recentSession.page_count);
+                                let bookSessions = progressForBook.filter(session => session.book_id === book.id);
+                                let recentSession = bookSessions[bookSessions.length - 1];
+                                // let percentComplete = (recentSession.page/recentSession.page_count);
 
-                            return (
-                                <TableRow key={book.id}>
-                                    <TableCell>{book.title}</TableCell>
-                                    <TableCell>{book.author}</TableCell>
-                                    <TableCell>{recentSession ? recentSession.page : <span>---</span>}</TableCell>
-                                    <TableCell>{recentSession ? recentSession.date.split('T')[0] : <span>---</span>}</TableCell>
-                                    <TableCell>{recentSession ? (recentSession.page/recentSession.page_count*100).toFixed(2) : <span>---</span>}</TableCell>
-                                    <TableCell><Button variant='outlined' onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button></TableCell>
-                                    <TableCell><Button variant='outlined' onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</Button></TableCell>
-                                    <TableCell><Button variant='outlined' onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button></TableCell>
-                                </TableRow>
-                            )
-                        })}
-                    </TableBody>
-                </Table> : <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
-                <Button variant='contained' onClick={() => history.push('/addbook')}>ADD BOOK</Button>
+                                return (
+                                    <TableRow key={book.id}>
+                                        <TableCell>{book.title}</TableCell>
+                                        <TableCell>{book.author}</TableCell>
+                                        <TableCell>{recentSession ? recentSession.page : <span>---</span>}</TableCell>
+                                        <TableCell>{recentSession ? recentSession.date.split('T')[0] : <span>---</span>}</TableCell>
+                                        <TableCell>{recentSession ? (recentSession.page / recentSession.page_count * 100).toFixed(2) : <span>---</span>}</TableCell>
+                                        <TableCell><Button variant='outlined' onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button></TableCell>
+                                        <TableCell><Button variant='outlined' onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</Button></TableCell>
+                                        <TableCell><Button variant='outlined' onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button></TableCell>
+                                    </TableRow>
+                                )
+                            })}
+                        </TableBody>
+                    </Table> : <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
+                </TableContainer>
+                <Button
+                    sx={{ m: 2 }}
+                    variant='contained'
+                    onClick={() => history.push('/addbook')}>ADD BOOK</Button>
             </Grid>
         </>
     );
