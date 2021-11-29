@@ -36,7 +36,7 @@ function EditBook() {
                 justifyContent="center"
                 style={{ minHeight: '30vh' }}
             >
-                <h2>Edit Book</h2>
+                <h2>Edit Book Information</h2>
                 <form onSubmit={runUpdateBook}>
                     <FormControl
                         sx={{

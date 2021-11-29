@@ -37,7 +37,7 @@ function Collection() {
                 justifyContent="center"
                 style={{ minHeight: '30vh' }}
             >
-                <h2>Collection</h2>
+                <h2>Collection of Read Books</h2>
                 <TableContainer component={Paper}>
                     {completedBooks.length > 0 ? <Table>
                         <TableHead>

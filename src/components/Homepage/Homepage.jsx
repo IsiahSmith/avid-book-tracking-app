@@ -38,7 +38,7 @@ function HomePage() {
                 justifyContent="center"
                 style={{ minHeight: '30vh' }}
             >
-                <h2>Currently Reading</h2>
+                <h2>Books Currently Being Read</h2>
                 <TableContainer component={Paper}>
                     {books.length > 0 ? <Table>
                         <TableHead>
@@ -48,9 +48,9 @@ function HomePage() {
                                 <TableCell>Page#</TableCell>
                                 <TableCell>Last Read</TableCell>
                                 <TableCell>%Complete</TableCell>
-                                <TableCell>Edit</TableCell>
-                                <TableCell>Update Progress</TableCell>
-                                <TableCell>Complete</TableCell>
+                                <TableCell>Edit Book Info</TableCell>
+                                <TableCell>Update Reading Progress</TableCell>
+                                <TableCell>Complete Book</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>

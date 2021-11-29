@@ -36,7 +36,7 @@ function UpdateProgress() {
                 justifyContent="center"
                 style={{ minHeight: '30vh' }}
             >
-                <h2>Update Progress</h2>
+                <h2>Update Reading Progress</h2>
                 <form onSubmit={addReadingSession}>
                     <FormControl
                         sx={{
@@ -58,7 +58,7 @@ function UpdateProgress() {
                             variant="outlined"
                             label="Duration"
                             type="number"
-                            helperText="(How long you read for [hours])"
+                            helperText="(How long you read for [hrs])"
                             value={readingSession.duration}
                             onChange={(event) => handlePropertyChange(event, 'duration')}
                         />
