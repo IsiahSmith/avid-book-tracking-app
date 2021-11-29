@@ -67,16 +67,15 @@ function ReadingData() {
         }
     };
 
-    //Data setup for bar chart
+    //Sets chart label to dates
     const labels = Object.keys(result);
+    //Sorts labels from oldest date to newest
+    labels.sort();
+    //Sets chart data to hours read per day
     const data = labels.map(date => result[date]);
-    // for (let i = 0; i < progress.length; i++) {
-    //     labels.push(progress[i].date.split('T')[0])
-    //     data.push(Number(progress[i].duration))
-    // };
 
     console.log('labels', labels);
-    console.log('Progress', progress);
+    console.log('result', result);
     console.log('pages read', pagesRead);
     console.log('reading speed', readingSpeed);
     return (
