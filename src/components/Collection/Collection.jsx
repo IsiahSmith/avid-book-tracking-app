@@ -12,6 +12,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Collection() {
     const dispatch = useDispatch();
@@ -67,7 +68,7 @@ function Collection() {
                                         <TableCell><Rating name="read-only" value={book.rating} readOnly /></TableCell>
                                         <TableCell>{sum}</TableCell>
                                         <TableCell>{finalSession?.date.split('T')[0]}</TableCell>
-                                        <TableCell><Button variant='contained' onClick={() => dispatch({ type: "DELETE_BOOK", payload: book })}>DELETE</Button></TableCell>
+                                        <TableCell><Button variant='contained' endIcon={<DeleteIcon />} onClick={() => dispatch({ type: "DELETE_BOOK", payload: book })}>DELETE</Button></TableCell>
                                     </TableRow>
                                 )
                             })}

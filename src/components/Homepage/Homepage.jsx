@@ -15,6 +15,7 @@ import Paper from '@mui/material/Paper';
 import EditIcon from '@mui/icons-material/Edit';
 import UpgradeIcon from '@mui/icons-material/Upgrade';
 import DoneIcon from '@mui/icons-material/Done';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 function HomePage() {
     const dispatch = useDispatch();
@@ -81,6 +82,7 @@ function HomePage() {
                 <Button
                     sx={{ m: 2 }}
                     variant='contained'
+                    endIcon={<MenuBookIcon />}
                     onClick={() => history.push('/addbook')}>ADD BOOK</Button>
             </Grid>
         </>
