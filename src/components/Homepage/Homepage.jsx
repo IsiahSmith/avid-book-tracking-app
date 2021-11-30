@@ -12,6 +12,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import EditIcon from '@mui/icons-material/Edit';
+import UpgradeIcon from '@mui/icons-material/Upgrade';
+import DoneIcon from '@mui/icons-material/Done';
 
 function HomePage() {
     const dispatch = useDispatch();
@@ -66,9 +69,9 @@ function HomePage() {
                                         <TableCell>{recentSession ? recentSession.page : <span>---</span>}</TableCell>
                                         <TableCell>{recentSession ? recentSession.date.split('T')[0] : <span>---</span>}</TableCell>
                                         <TableCell>{recentSession ? (recentSession.page / recentSession.page_count * 100).toFixed(2) : <span>---</span>}</TableCell>
-                                        <TableCell><Button variant='outlined' onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button></TableCell>
-                                        <TableCell><Button variant='outlined' onClick={() => history.push(`/update/${book.id}`)}>UPDATE PROGRESS</Button></TableCell>
-                                        <TableCell><Button variant='outlined' onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button></TableCell>
+                                        <TableCell><Button variant='outlined' endIcon={<EditIcon />} onClick={() => history.push(`/edit/${book.id}`)}>EDIT</Button></TableCell>
+                                        <TableCell><Button variant='outlined' endIcon={<UpgradeIcon />} onClick={() => history.push(`/update/${book.id}`)}>UPDATE</Button></TableCell>
+                                        <TableCell><Button variant='outlined' endIcon={<DoneIcon />} onClick={() => history.push(`/complete/${book.id}`)}>COMPLETE</Button></TableCell>
                                     </TableRow>
                                 )
                             })}
