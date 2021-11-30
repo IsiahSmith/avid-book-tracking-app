@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 
+//Material-UI imports
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+
 function ReadingData() {
     const dispatch = useDispatch();
     const books = useSelector((store) => store.books);
@@ -49,20 +53,20 @@ function ReadingData() {
 
     // Calculates total hours read by user for each day
     let result = {};
-    for(let entry of progress){
+    for (let entry of progress) {
         let date = entry.date?.split('T')[0];
         let matched = false;
 
         //if the date is already in result, do this
-        for(let key in result){
-            if(key === date){
+        for (let key in result) {
+            if (key === date) {
                 result[date] = result[date] + Number(entry.duration);
                 // let the rest of the loop know that 
                 matched = true;
             }
         }
         //if the date is not in result, make a new entry
-        if(!matched) {
+        if (!matched) {
             result[date] = Number(entry.duration)
         }
     };
@@ -80,6 +84,33 @@ function ReadingData() {
     console.log('reading speed', readingSpeed);
     return (
         <>
+            <Grid
+                container
+                spacing={0}
+                direction="rows"
+                alignItems="center"
+                justifyContent="center"
+                style={{ minHeight: '10vh' }}
+            >
+                <Paper
+                    sx={{
+                        m: 1,
+                        width: '7cm'
+                    }}
+                    justifyContent="center">TOTAL HOURS READ: {totalHours}</Paper>
+                <Paper
+                    sx={{
+                        m: 1,
+                        width: '7cm'
+                    }}
+                    justifyContent="center">TOTAL BOOKS READ: {completedBooks.length}</Paper>
+                <Paper
+                    sx={{
+                        m: 1,
+                        width: '7cm'
+                    }}
+                    justifyContent="center">READING SPEED: {precise(average(readingSpeed))} (pgs/hr)</Paper>
+            </Grid>
             <div className="chart">
                 <Line
                     data={{
@@ -114,11 +145,6 @@ function ReadingData() {
                         }
                     }}
                 />
-            </div>
-            <div>
-                <h3>TOTAL HOURS READ: {totalHours}</h3>
-                <h3>TOTAL BOOKS READ: {completedBooks.length}</h3>
-                <h3>READING SPEED: {precise(average(readingSpeed))} Pages per Hour</h3>
             </div>
         </>
     )
