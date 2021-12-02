@@ -35,7 +35,7 @@ function AddBook() {
                 justifyContent="center"
                 style={{ minHeight: '30vh' }}
             >
-                <h2 onClick={() => setNewBook({ title: '', author: '', page_count: '' })}>Add a Book</h2>
+                <h2>Add a Book</h2>
                 <form onSubmit={addNewBook}>
                     <FormControl
                         sx={{
