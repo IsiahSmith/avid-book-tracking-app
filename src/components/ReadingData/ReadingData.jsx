@@ -78,10 +78,6 @@ function ReadingData() {
     //Sets chart data to hours read per day
     const data = labels.map(date => result[date]);
 
-    console.log('labels', labels);
-    console.log('result', result);
-    console.log('pages read', pagesRead);
-    console.log('reading speed', readingSpeed);
     return (
         <>
             <Grid
