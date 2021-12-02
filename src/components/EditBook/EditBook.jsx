@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid';
 function EditBook() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [updateBook, setUpdateBook] = useState({ title: 'The Catcher in the Rie', author: 'J. D. Salinger', page_count: '277' })
+    const [updateBook, setUpdateBook] = useState({ title: '', author: '', page_count: '' })
     const { book_id } = useParams();
 
     //Sets updateBook local state to the passed in inputs
