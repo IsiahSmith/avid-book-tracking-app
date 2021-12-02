@@ -75,7 +75,6 @@ router.post('/progress', (req, res) => {
     INSERT INTO "reading_session" ("book_id", "date", "duration", "page")
     VALUES ($1, $2, $3, $4);
     `;
-  console.log('!!!!', req.body);
   pool.query(queryText, [req.body.book_id, req.body.date, req.body.duration, req.body.page])
     .then(result => {
       res.sendStatus(201);
@@ -88,7 +87,6 @@ router.post('/progress', (req, res) => {
 
 // Updates the rating of the book in the database and on the DOM
 router.put('/rating/:id', (req, res) => {
-  console.log('RATING ROUTE', req.params);
   const id = req.params.id;
   const queryText = `
     UPDATE "book"
