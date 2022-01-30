@@ -20,15 +20,16 @@ function LandingPage() {
       <div className="grid">
         <div className="grid-col grid-col_8">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+          AVID is an app designed to track the user’s personal reading and reading behavior. 
+          Users begin by adding the title, author, 
+          and page count of the book they would like to track (this information can be edited after with the ‘Edit’ button). 
+          The user is then able to edit the book’s information, 
+          update the reading progress of the book, or mark the book as complete. 
+          Clicking ‘Update’ will allow the user to update their progress in the book, 
+          and prompt them to input the date the user last read the book, how long they read for, 
+          and the current page they’re on. The updated progress is then tracked and displayed on screen. 
+          Users can marks books as complete, giving them a rating and adding them to the 'Collections' page. 
+          AVID also features a Reading Data page that features stats and metrics, such as the user’s reading speed and how long they read for each day via chart.js
           </p>
 
           <p>
@@ -40,15 +41,6 @@ function LandingPage() {
             euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
             lobortis augue mi vel felis. Duis ultrices sapien at est convallis
             congue.
-          </p>
-
-          <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
           </p>
         </div>
         <div className="grid-col grid-col_4">
