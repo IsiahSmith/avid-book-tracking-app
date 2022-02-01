@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 // Gets all reading sessions from the logged in user
-router.get('/progress', (req, res) => {
+router.get('/', (req, res) => {
     const queryText = `
       SELECT "book_id", "date", "duration", "page", "title", "author", "page_count", "rating" FROM "reading_session" 
       JOIN "book" ON "book"."id" = "reading_session"."book_id"
@@ -20,7 +20,7 @@ router.get('/progress', (req, res) => {
   }); //End GET
   
   // Adds reading progress to database
-  router.post('/progress', (req, res) => {
+  router.post('/', (req, res) => {
     const queryText = `
       INSERT INTO "reading_session" ("book_id", "date", "duration", "page")
       VALUES ($1, $2, $3, $4);

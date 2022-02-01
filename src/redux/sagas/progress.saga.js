@@ -4,7 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 //saga GET to server
 function* fetchProgress() {
     try {
-        const response = yield axios.get('/api/books/progress')
+        const response = yield axios.get('/api/progress')
         yield put({ type: 'SET_PROGRESS', payload: response.data });
     } catch (err) {
         console.log('GET ERROR IN PROGRESS SAGA', err);
@@ -14,7 +14,7 @@ function* fetchProgress() {
 //saga POST to server
 function* addProgress(action) {
     try {
-        yield axios.post('/api/books/progress', action.payload)
+        yield axios.post('/api/progress', action.payload)
         yield put({ type: 'FETCH_PROGRESS' })
     } catch (err) {
         console.log('POST ERROR IN PROGRESS SAGA', err);
