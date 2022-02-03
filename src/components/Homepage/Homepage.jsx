@@ -61,7 +61,7 @@ function HomePage() {
                             {currentlyReading.map((book) => {
 
                                 let bookSessions = progressForBook.filter(session => session.book_id === book.id);
-                                let recentSession = bookSessions[bookSessions.length - 1];
+                                let recentSession = bookSessions[0];
 
                                 return (
                                     <TableRow key={book.id}>
