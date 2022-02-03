@@ -27,7 +27,7 @@ function ReadingData() {
     };
 
     //Gets pages read for each reading session of the user
-    let pagesRead = [progress[0].page];
+    let pagesRead = [progress[0]?.page];
     for (let i = 1; i < progress.length; i++) {
         if (progress[i].book_id === progress[i - 1].book_id) {
             pagesRead.push(Number(progress[i].page) - Number(progress[i - 1].page))
@@ -39,7 +39,7 @@ function ReadingData() {
     //Calculates reading speed for reading session of the user
     let readingSpeed = [];
     for (let i = 0; i < pagesRead.length; i++) {
-        readingSpeed.push(pagesRead[i] / Number(progress[i].duration))
+        readingSpeed.push(pagesRead[i] / Number(progress[i]?.duration))
     };
 
     //Calculates users average reading speed
