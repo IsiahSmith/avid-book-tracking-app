@@ -63,6 +63,7 @@ function HomePage() {
                         <TableBody>
                             {currentlyReading.map((book) => {
 
+                                //Filters to only get the most recent entry for each specific book
                                 let bookSessions = progressForBook.filter(session => session.book_id === book.id);
                                 let recentSession = bookSessions[0];
 

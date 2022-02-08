@@ -25,7 +25,10 @@ function Collection() {
         dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
+    // Filters to get only completed books
     let completedBooks = books.filter(book => book.rating > 0);
+
+    // Filters to get progress entries for only completed books
     let progressForBook = progress.filter(session => session.rating > 0);
 
     return (
