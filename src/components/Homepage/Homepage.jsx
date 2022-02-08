@@ -29,7 +29,10 @@ function HomePage() {
         dispatch({ type: 'FETCH_PROGRESS' });
     }, []);
 
+    // Filters out completed books to only contain books still being read
     let currentlyReading = books.filter(book => book.rating === null);
+
+    // Filters out reading progress entries to only contain books still being read
     let progressForBook = progress.filter(session => session.rating === null);
 
     return (
