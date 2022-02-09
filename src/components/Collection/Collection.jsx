@@ -57,8 +57,11 @@ function Collection() {
                         <TableBody>
                             {completedBooks.map((book) => {
 
+                                // Gets the final reading entry for each completed book
                                 let completedBookSessions = progressForBook.filter(session => session.book_id === book.id);
                                 let finalSession = completedBookSessions[completedBookSessions.length - 1];
+
+                                // Gets the completion time for each completed book (in hours)
                                 let sum = 0;
                                 for (let i = 0; i < completedBookSessions.length; i++) {
                                     sum += Number(completedBookSessions[i].duration)
