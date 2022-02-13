@@ -79,7 +79,9 @@ function Collection() {
                                 )
                             })}
                         </TableBody>
-                    </Table> : <p>You haven't completed any books yet! Complete a book to see it added here.</p>}
+                    </Table> : 
+                    // Renders only if user has no completed books
+                    <p>You haven't completed any books yet! Complete a book to see it added here.</p>}
                 </TableContainer>
             </Grid>
         </>

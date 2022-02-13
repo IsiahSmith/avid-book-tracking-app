@@ -81,7 +81,9 @@ function HomePage() {
                                 )
                             })}
                         </TableBody>
-                    </Table> : <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
+                    </Table> : 
+                    // Renders only if user has no books added
+                    <p> You're not tracking any books yet! Click 'ADD BOOK' to get started!</p>}
                 </TableContainer>
                 <Button
                     sx={{ m: 2 }}
