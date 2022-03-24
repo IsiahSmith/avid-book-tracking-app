@@ -128,6 +128,14 @@ function App() {
               <ReadingData />
             </ProtectedRoute>
 
+            <ProtectedRoute
+              // logged in shows Goals else shows LoginPage
+              exact
+              path="/goals"
+            >
+              <ReadingData />
+            </ProtectedRoute>
+
             <Route
               exact
               path="/login"

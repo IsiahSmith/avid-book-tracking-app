@@ -36,6 +36,10 @@ function Nav() {
               Reading Data
             </Link>
 
+            <Link className="navLink" to="/data">
+              Goals
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}
