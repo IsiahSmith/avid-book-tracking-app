@@ -24,6 +24,7 @@ import UpdateProgress from '../UpdateProgress/UpdateProgress';
 import CompleteForm from '../CompleteForm/CompleteForm';
 import AddBook from '../AddBook/AddBook';
 import ReadingData from '../ReadingData/ReadingData';
+import Goals from '../Goals/Goals';
 
 import './App.css';
 
