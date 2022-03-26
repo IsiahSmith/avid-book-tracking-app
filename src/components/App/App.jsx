@@ -133,7 +133,7 @@ function App() {
               exact
               path="/goals"
             >
-              <ReadingData />
+              <Goals />
             </ProtectedRoute>
 
             <Route

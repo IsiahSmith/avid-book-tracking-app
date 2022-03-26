@@ -36,7 +36,7 @@ function Nav() {
               Reading Data
             </Link>
 
-            <Link className="navLink" to="/data">
+            <Link className="navLink" to="/goals">
               Goals
             </Link>
 
