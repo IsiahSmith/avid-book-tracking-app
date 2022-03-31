@@ -27,3 +27,11 @@ CREATE TABLE "reading_session" (
 	"duration" INT,
 	"page" INT
 );
+
+
+CREATE TABLE "goal" (
+	"id" SERIAL PRIMARY KEY,
+	"user_id" INT REFERENCES "user",
+	"current" INT NOT NULL,
+	"total" INT NOT NULL
+);
