@@ -15,3 +15,19 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500)
       })
   }); //End GET
+
+  // Adds user's goal to database
+router.post('/', (req, res) => {
+    const queryText = `
+      INSERT INTO "goal" ("user_id", "current", "total")
+      VALUES ($1, $2, $3);
+    `;
+    pool.query(queryText, [req.user.id, req.body.current, req.body.total])
+      .then(result => {
+        res.sendStatus(201);
+      })
+      .catch(err => {
+        console.log('Error POSTing goal', err);
+        res.sendStatus(500)
+      })
+  }); //End POST
