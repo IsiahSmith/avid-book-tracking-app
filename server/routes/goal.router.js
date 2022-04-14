@@ -31,3 +31,5 @@ router.post('/', (req, res) => {
         res.sendStatus(500)
       })
   }); //End POST
+
+  module.exports = router;
