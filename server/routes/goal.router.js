@@ -32,4 +32,23 @@ router.post('/', (req, res) => {
       })
   }); //End POST
 
+  // Updates the user goal in the database
+router.put('/goal/:id', (req, res) => {
+    const id = req.params.id;
+    const queryText = `
+      UPDATE "goal"
+      SET "current" = $1
+      WHERE "id" = $2;
+    `;
+    pool.query(queryText, [req.body.current, id])
+      .then(result => {
+        console.log('result is', result);
+        res.sendStatus(200);
+      })
+      .catch(err => {
+        console.log('Error updating goal', err);
+        res.sendStatus(500)
+      })
+  }); //End PUT
+
   module.exports = router;
