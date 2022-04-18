@@ -51,4 +51,21 @@ router.put('/goal/:id', (req, res) => {
       })
   }); //End PUT
 
+  // Deletes goal from the DOM and database
+router.delete('/:id', (req, res) => {
+    let id = req.params.id
+    let queryText = `
+      DELETE FROM "goal"
+      WHERE id = $1
+    `;
+    pool.query(queryText, [id])
+      .then(results => {
+          res.sendStatus(204)
+        })
+        .catch(err => {
+        console.log('Error deleting goal', err)
+        res.sendStatus(500)
+      })
+  }); //End DELETE
+
   module.exports = router;
