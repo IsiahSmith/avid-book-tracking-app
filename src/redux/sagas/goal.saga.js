@@ -12,8 +12,8 @@ function* fetchGoal() {
 };
 
 //watching for functions to be called
-function* booksSaga() {
-    yield takeLatest('FETCH_BOOKS', fetchBooks);
+function* goalSaga() {
+    yield takeLatest('FETCH_GOAL', fetchGoal);
 }
 
 export default goalSaga;
