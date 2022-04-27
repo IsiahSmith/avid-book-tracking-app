@@ -11,6 +11,16 @@ function* fetchGoal() {
     }
 };
 
+//saga POST to server
+function* addGoal(action) {
+    try {
+        yield axios.post('/api/goal', action.payload)
+        yield put({ type: 'FETCH_GOAL' });
+    } catch (err) {
+        console.log('POST ERROR IN GOAL SAGA', err);
+    }
+};
+
 //watching for functions to be called
 function* goalSaga() {
     yield takeLatest('FETCH_GOAL', fetchGoal);
