@@ -24,6 +24,7 @@ function* addGoal(action) {
 //watching for functions to be called
 function* goalSaga() {
     yield takeLatest('FETCH_GOAL', fetchGoal);
+    yield takeLatest('ADD_GOAL', addGoal);
 }
 
 export default goalSaga;
